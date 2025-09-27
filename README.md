@@ -24,7 +24,7 @@ A social media platform with integrated e-commerce capabilities built with React
 - Secure checkout process
 
 ### 📱 Social Features
-- Twitter-like interface
+- Bootstrap type interface
 - User profiles
 - Post creation and timeline
 - Social interactions (likes, shares)
