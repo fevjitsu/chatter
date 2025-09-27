@@ -11,7 +11,7 @@ import Store from './pages/Store';
 import Checkout from './pages/Checkout';
 import Admin from './pages/Admin';
 import ProtectedRoute from './components/ProtectedRoute';
-import './styles/App.css';
+import './App.css';
 
 function App() {
   return (
