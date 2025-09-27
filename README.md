@@ -54,5 +54,5 @@ A social media platform with integrated e-commerce capabilities built with React
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd twitter-clone-commerce
+   git clone https://github.com/fevjitsu/chatter.git
+   cd chatter-code
