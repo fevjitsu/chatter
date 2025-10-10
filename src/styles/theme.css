@@ -1,0 +1,277 @@
+/* src/styles/theme.css */
+/* Import Caribbean-inspired font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+:root {
+  /* Trinidad & Tobago Color Palette - Based on the flag */
+  --tnt-red: #CE1126;
+  --tnt-white: #FFFFFF;
+  --tnt-black: #000000;
+  --caribbean-blue: #00A1DE;
+  --sunshine-yellow: #FFD100;
+  --lime-green: #8CC63F;
+  --coral: #FF6B6B;
+  --ocean-deep: #005C84;
+  --sand-beige: #F5E6CA;
+  --palm-green: #2E8B57;
+  --carnival-pink: #FF69B4;
+  --steelpan-silver: #C0C0C0;
+  
+  /* Caribbean Nature Colors */
+  --sea-blue: #1E90FF;
+  --sky-blue: #87CEEB;
+  --sunset-orange: #FF8C00;
+  --mango: #FFA62B;
+  --coconut: #F5F5DC;
+  --banana: #FFE135;
+  
+  /* Gradients */
+  --caribbean-sunset: linear-gradient(135deg, var(--sunset-orange) 0%, var(--tnt-red) 100%);
+  --ocean-breeze: linear-gradient(135deg, var(--sea-blue) 0%, var(--caribbean-blue) 100%);
+  --tropical-forest: linear-gradient(135deg, var(--lime-green) 0%, var(--palm-green) 100%);
+  --carnival-vibes: linear-gradient(135deg, var(--carnival-pink) 0%, var(--sunshine-yellow) 100%);
+  --beach-sand: linear-gradient(135deg, var(--sand-beige) 0%, var(--coconut) 100%);
+  
+  /* Shadows */
+  --tropical-shadow: 0 4px 20px rgba(206, 17, 38, 0.15);
+  --caribbean-glow: 0 0 20px rgba(255, 209, 0, 0.3);
+  --island-shadow: 0 8px 32px rgba(0, 161, 222, 0.15);
+  
+  /* Borders */
+  --steelpan-border: 2px solid var(--steelpan-silver);
+  --palm-border: 1px solid var(--palm-green);
+  --carnival-border: 2px solid var(--carnival-pink);
+  
+  /* Typography */
+  --font-family: 'Inter', 'Calypso', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-heading: 'Caribbean', 'Inter', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+}
+
+
+
+/* Caribbean Theme Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--ocean-breeze);
+  color: var(--tnt-white);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  background: var(--ocean-breeze);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Caribbean Pattern Background */
+.caribbean-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.1;
+  background-image: 
+    radial-gradient(circle at 20% 80%, var(--tnt-red) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, var(--sunshine-yellow) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, var(--lime-green) 0%, transparent 50%);
+}
+
+/* Palm Tree Animation */
+.palm-trees {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  pointer-events: none;
+  z-index: 2;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath fill='%232E8B57' d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 1200px 100px;
+  animation: wave 20s linear infinite;
+}
+
+@keyframes wave {
+  0% { background-position-x: 0; }
+  100% { background-position-x: 1200px; }
+}
+
+/* Sun Animation */
+.sun {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: var(--sunshine-yellow);
+  border-radius: 50%;
+  box-shadow: 0 0 40px var(--sunshine-yellow);
+  z-index: 1;
+  animation: sunPulse 4s ease-in-out infinite;
+}
+
+@keyframes sunPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Caribbean-themed Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ocean-deep);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--tnt-red);
+  border-radius: 10px;
+  border: 2px solid var(--sunshine-yellow);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--carnival-pink);
+}
+
+/* Common Component Styles */
+.caribbean-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: var(--steelpan-border);
+  border-radius: 16px;
+  box-shadow: var(--tropical-shadow);
+  transition: all 0.3s ease;
+  color: var(--tnt-black);
+}
+
+.caribbean-card:hover {
+  box-shadow: var(--island-shadow);
+  transform: translateY(-5px);
+  border-color: var(--carnival-pink);
+}
+
+.caribbean-button {
+  background: var(--caribbean-sunset);
+  color: var(--tnt-white);
+  border: none;
+  border-radius: 25px;
+  padding: var(--space-3) var(--space-6);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--tropical-shadow);
+  font-family: var(--font-family-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.caribbean-button:hover {
+  background: var(--carnival-vibes);
+  box-shadow: var(--caribbean-glow);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.caribbean-button-secondary {
+  background: transparent;
+  border: 2px solid var(--tnt-red);
+  color: var(--tnt-red);
+}
+
+.caribbean-button-secondary:hover {
+  background: var(--tnt-red);
+  color: var(--tnt-white);
+}
+
+.caribbean-input {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--caribbean-blue);
+  border-radius: 12px;
+  padding: var(--space-3) var(--space-4);
+  color: var(--tnt-black);
+  font-size: var(--font-size-base);
+  transition: all 0.3s ease;
+  font-family: var(--font-family);
+}
+
+.caribbean-input:focus {
+  outline: none;
+  border-color: var(--sunshine-yellow);
+  box-shadow: 0 0 0 3px rgba(255, 209, 0, 0.3);
+  background: var(--tnt-white);
+}
+
+.caribbean-input::placeholder {
+  color: var(--ocean-deep);
+  opacity: 0.7;
+}
+
+/* Carnival Confetti Animation */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--carnival-pink);
+  opacity: 0.7;
+  animation: confettiFall 5s linear infinite;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Steelpan Drum Effect */
+.steelpan {
+  background: radial-gradient(circle at center, var(--steelpan-silver) 0%, #a0a0a0 100%);
+  border-radius: 50%;
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Trinidad Map Marker */
+.map-marker {
+  background: var(--tnt-red);
+  color: var(--tnt-white);
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+  border: 2px solid var(--sunshine-yellow);
+}

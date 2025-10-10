@@ -1,9 +1,8 @@
-// src/context/AuthContext.jsx
+// src/context/AuthContext.jsx (Add this to your existing file)
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { auth } from '../services/firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 
-// Create authentication context
 const AuthContext = createContext();
 
 export const useAuth = () => {
@@ -19,22 +18,28 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Listen for authentication state changes
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
+      
+      // Log authentication method
+      if (user) {
+        const providerData = user.providerData[0];
+        console.log('User signed in with:', providerData?.providerId);
+        console.log('User email verified:', user.emailVerified);
+      }
     });
 
-    // Cleanup subscription
     return unsubscribe;
   }, []);
 
-  // Sign out function
   const logout = async () => {
     try {
       await signOut(auth);
+      console.log('User signed out');
     } catch (error) {
       console.error('Error signing out:', error);
+      throw error;
     }
   };
 
