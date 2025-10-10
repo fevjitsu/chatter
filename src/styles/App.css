@@ -126,6 +126,15 @@
   margin-right: var(--space-2);
 }
 
+.main-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  width:100vw !important;
+  padding-top:120px;
+}
 @keyframes spin {
   to { transform: rotate(360deg); }
 }

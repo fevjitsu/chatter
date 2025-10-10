@@ -26,6 +26,7 @@ import {
   Smartphone,
   Monitor
 } from 'lucide-react';
+import '../styles/Login.css';
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);

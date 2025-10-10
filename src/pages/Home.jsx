@@ -14,6 +14,7 @@ import {
   Filter,
   TrendingUp
 } from 'lucide-react';
+import '../styles/Home.css';
 
 const Home = () => {
   const { user } = useAuth();
